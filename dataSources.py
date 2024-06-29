@@ -1,4 +1,3 @@
-from llama_index.readers.google import GoogleDriveReader
 from llama_index.core import Settings
 from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
 from llama_index.llms.openai import OpenAI
@@ -16,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 llm = OpenAI(
-    model="gpt-4"
+    model="gpt-3.5-turbo"
 )
 Settings.llm = llm
 
