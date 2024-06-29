@@ -4,9 +4,7 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core import VectorStoreIndex,SummaryIndex
-from llama_index.core import ServiceContext, StorageContext
-from llama_index.vector_stores.chroma import ChromaVectorStore
-import chromadb
+
 __import__ ('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')

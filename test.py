@@ -3,9 +3,7 @@ from dataSources import QueryEngine
 from llm import generate_response
 from pdf_generator import HtmlToPdf
 from template import documentTemplate1
-__import__ ('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 def main():
     
     option = "Upload PDF"
