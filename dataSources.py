@@ -49,11 +49,3 @@ class QueryEngine:
                                                     storage_context=storage_context)
             query_engine = index.as_query_engine()
             return query_engine
-        elif self.type == "Gdrive":
-            # Make sure credentials.json file exists in the current directory (data_connectors)
-            documents = GoogleDriveReader().load_data(folder_id=self.content)
-            index = VectorStoreIndex.from_documents(documents)
-            # Set Logging to DEBUG for more detailed outputs
-            query_engine = index.as_query_engine()
-
-            return query_engine
