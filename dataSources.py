@@ -42,13 +42,11 @@ class QueryEngine:
             
     def get_query_engine(self):
         if self.type == "Upload":
-            chroma_client = chromadb.EphemeralClient()
-            chroma_collection = chroma_client.create_collection(datetime.now().strftime("%Y%m%d%H%M%S"))
-            vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
-            service_context = ServiceContext.from_defaults(embed_model=embed_model,llm=llm)
-            storage_context = StorageContext.from_defaults(vector_store=vector_store)
-            index = VectorStoreIndex.from_documents(self.documents,
-                                                    service_context=service_context,
-                                                    storage_context=storage_context)
+            # chroma_client = chromadb.EphemeralClient()
+            # chroma_collection = chroma_client.create_collection(datetime.now().strftime("%Y%m%d%H%M%S"))
+            # vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
+            # service_context = ServiceContext.from_defaults(embed_model=embed_model,llm=llm)
+            # storage_context = StorageContext.from_defaults(vector_store=vector_store)
+            index = VectorStoreIndex.from_documents(self.documents)
             query_engine = index.as_query_engine()
             return query_engine
