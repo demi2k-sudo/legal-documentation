@@ -1,0 +1,7 @@
+chromadb==0.4.24
+llama_index==0.10.50
+openai==1.35.7
+pdf2docx==0.5.8
+pdfkit==1.0.0
+python-dotenv==1.0.1
+streamlit==1.31.1
