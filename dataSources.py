@@ -1,5 +1,5 @@
 from llama_index.core import Settings
-from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
+from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.node_parser import SentenceSplitter
@@ -15,18 +15,15 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+
+
 llm = OpenAI(
     model="gpt-3.5-turbo"
 )
 Settings.llm = llm
 
-embed_model = AzureOpenAIEmbedding(
-    model=os.getenv("EMBD_MODEL"),
-    deployment_name=os.getenv("EMBD_DEPLOYMENT"),
-    api_key=os.getenv('API_KEY'),
-    azure_endpoint=os.getenv('ENDPOINT'),
-    api_version="2024-02-15-preview",
-)
+embed_model = OpenAIEmbedding(model="text-embedding-3-large")
+
 Settings.embed_model = embed_model
 
 
